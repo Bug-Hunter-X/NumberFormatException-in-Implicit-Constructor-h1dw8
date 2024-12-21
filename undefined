@@ -1,0 +1,16 @@
+```scala
+class MyClass(val value: Int) {
+  def this(s: String) = try {
+    this(s.toInt)
+  } catch {
+    case e: NumberFormatException =>
+      println("Invalid input string. Using default value 0.")
+      this(0)
+  }
+}
+
+val myObject1 = new MyClass("123")
+val myObject2 = new MyClass("abc")
+println(myObject1.value) // Output: 123
+println(myObject2.value) // Output: 0
+```
